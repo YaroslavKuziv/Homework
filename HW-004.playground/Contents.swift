@@ -7,7 +7,7 @@ struct Door {
     
     var color: String
     var state: String
-
+    
 }
 
 //2. Уявіть що пройшов певний час і вам на основі попереднього стану треба отримати поточний стан дверей, опишіть цей стан
@@ -23,27 +23,48 @@ newDoor.state
 
 //5. Створити сутність Person і описати в ньому властивість name.
 
-//struct Person{
-//
-//    var name: String
-//
-//}
-//6. Створити ще одну сутність Person і описати в ньому властивість name
-//7. Створити змінні яким присвоїти створені вище сутності
+class Person0{
 
-//var first = Person(name: "Vasya")
-//var second = Person(name:"Petya")
+    var name0: String
+    
+    init(name0: String){
+        self.name0 = name0
+    }
+
+}
+
+class Person1{
+
+    var name1: String
+    
+    init(name1: String) {
+        self.name1 = name1
+    }
+
+}
+
+
+
+var first = Person0(name0: "Vasya")
+var second = Person1(name1:"Petya")
 //8. Модифікувати ім’я змінних
 
+first.name0 = "asldklasd"
+
+second.name1 = "asl;dk;kads"
+
+var additionalVar = first
+
+additionalVar.name0 = "asdasdsa"
 //9. Порівняти ім’я першої сутності з іменем другої
-first.name == second.name
+//first.name == second.name
 
 
 
 //Створити клас Person і описати в ньому властивість name. В ініціалізаторі присвоїти імя і вивести в лог
 class Person{
     var name: String
-    var child: Son?
+    var  child: Son?
     
  
     init(name: String) {
@@ -59,7 +80,7 @@ class Person{
 //Створити об’єкт типу Son
 class Son{
     var name: String
-    var parent: Person?
+    weak var parent: Person?
     
     init(name: String) {
             
@@ -79,14 +100,14 @@ do{
 
 //Зберегти посилання Person в Son, Son в Person
 
-var first: Person
-var second: Son
-
-first.name = "Katya"
-second.name = "Liza"
-
-first.child = second
-second.parent = first
+//var firstPerson: Person
+//var secondPerson: Son
+//
+//firstPerson.name = "Katya"
+//secondPerson.name = "Liza"
+//
+//firstPerson.child = second
+//secondPerson.parent = first
 //Запустити код - звурнути увагу на логи (deinit не викликається)
 //Модифікувати код так, щоб deinit з кожного об’єкту викликався
 //first = nil
@@ -123,27 +144,27 @@ second.parent = first
 //2. Створити об`єкт типу Operand і відразу занілити його
 //3. Перевірити логи (deinit не викликається)
 //4. Модифікувати код з використанням weak / unowned в capture list для вирішення даної проблеми
-
-class Operand{
-    var number: Float
-   
-    weak var Operand: Operand? = nil
-    
-    let closure:(() -> Operand) = { () in
-        return Operand(number: 1)
-    }
-    
-    init(number: Float) {
-        self.number = number
-        print("init")
-    }
-    deinit {
-        print("deinit")
-    }
-}
-
-do{
-    
-    var testOperand3: Operand? = Operand(number: 12)
-    
-}
+//
+//class Operand{
+//    var number: Float
+//
+//    weak var Operand: Operand? = nil
+//
+//    let closure: (() ->())?
+//
+//    init(number: Float) {
+//        self.number = number
+//        print("init")
+//        closure = { [weak self] in
+//        
+//        }
+//    }
+//    deinit {
+//        print("deinit")
+//    }
+//}
+//
+//do{
+//   
+//
+//}
